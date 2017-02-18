@@ -1,0 +1,24 @@
+<h2>My Proofers</h2>
+<div>
+    <label>Proofer name:</label> <input #prooferName/>
+    <button (click)="add(prooferName.value); prooferName.value=''">
+        Add
+    </button>
+</div>
+<ul class="proofers">
+    <li *ngFor="let proofer of proofers"
+        [class.selected]="proofer === selectedProofer"
+        (click)="onSelect(proofer)">
+        <span class="badge">{{ proofer.id }}</span> {{ proofer.name }}
+        <button class="delete"
+                (click)="delete(proofer); $event.stopPropagation()">x
+        </button>
+    </li>
+</ul>
+<div *ngIf="selectedProofer">
+    <h2>
+        {{ selectedProofer.name | uppercase }} is my proofer
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+
