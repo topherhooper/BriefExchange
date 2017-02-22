@@ -2,3 +2,4 @@
 */node_modules/
 gi_*
 *uploads/
+*.zip
