@@ -1,0 +1,9 @@
+<div id="search-component">
+    <label>Proofer Search</label>
+
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
+    <div *ngFor="let proofer of proofers | async"
+         (click)="gotoDetail(proofer)" class="search-result">
+        {{ hero.name }}
+    </div>
+</div>
