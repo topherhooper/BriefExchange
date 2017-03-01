@@ -1,3 +1,28 @@
 <router-outlet></router-outlet>
 <div class="container">
 </div>
+<div class="container">
+    <div [style.margin-top.px]="10" class="row">
+        <form>
+            <h3>Your Email</h3>
+            <div class="form-group">
+                <label for="clientUserName">Email</label>
+                <input type="text" class="form-control" id="clientUserName" #clientUserName>
+            </div>
+            <h3>Add Citation</h3>
+            <div class="form-group">
+                <label for="citation">Citation</label>
+                <input type="text" class="form-control" id="citation" #citation>
+            </div>
+            <button type="button" (click)="addCiteCart(citation.value, clientUserName.value)" class="btn btn-primary">Add Citation</button>
+        </form>
+    </div>
+    <div [style.margin-top.px]="10" class="row">
+        <h3>Citations</h3>
+        <ul>
+            <li [style.margin-right.px]="10" class="card card-block col-md-3" *ngFor="let citation of citations">
+                {{ citation.citation }} <br/>
+            </li>
+        </ul>
+    </div>
+</div>

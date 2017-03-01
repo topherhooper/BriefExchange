@@ -11,8 +11,8 @@ import {SignupComponent} from './signup.component'
 
 const routes: Routes = [
   // {path: '', redirectTo: '/dashboard', pathMatch: '/full'},
-  {path: '', component: SignupComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: '', component: DashboardComponent},
+  // {path: 'dashboard', component: DashboardComponent},
   {path: 'upload', component: UploadComponent},
   {path: 'signup', component: SignupComponent},
 ];
