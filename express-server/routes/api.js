@@ -30,19 +30,19 @@ router.get('/', (req, res) => {
 
 /* GET all citations. */
 router.get('/citations', (req, res) => {
-    Citation.find({}, (err, users) => {
+    Citation.find({}, (err, citations) => {
         if (err) res.status(500).send(error)
 
-        res.status(200).json(users);
+        res.status(200).json(citations);
     });
 });
 
 /* GET one users. */
 router.get('/citations/:id', (req, res) => {
-    Citation.findById(req.param.id, (err, users) => {
+    Citation.findById(req.param.id, (err, citations) => {
         if (err) res.status(500).send(error)
 
-        res.status(200).json(users);
+        res.status(200).json(citations);
     });
 });
 
