@@ -21,7 +21,7 @@ export class UploadComponent implements OnInit {
   closedStatus: string = '';
 
   // Link to our api, pointing to localhost
-  API = 'http://localhost:3000';
+  API = 'http://express:3000';
 
   // Declare empty list of people
   citations: any[] = [];

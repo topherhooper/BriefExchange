@@ -6,6 +6,8 @@ services:
     build: brief-exchange-web # specify the directory of the Dockerfile
     ports:
       - "4200:4200" # specify port forewarding
+    links:
+      - express
 
   express: #name of the second service
     build: express-server # specify the directory of the Dockerfile
