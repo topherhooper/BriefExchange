@@ -1,7 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
-var path = require('path');
 var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "contacts";
 
@@ -11,36 +10,6 @@ app.use(bodyParser.json());
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
-
-var stormpath = require('express-stormpath');
-
-app.set('trust proxy', true);
-app.use(function (req, res, next) {
-  console.log(new Date, req.method, req.url);
-  next();
-});
-console.log('Initializing Stormpath');
-
-app.use(stormpath.init(app, {
-  web: {
-    spa: {
-      enabled: true,
-      view: path.join(distDir, 'index.html')
-    },
-    me: {
-      // enabled: false,
-      expand: {
-        customData: true,
-        groups: true
-      }
-    }
-  }
-}));
-
-app.on('stormpath.ready', function () {
-  console.log('Stormpath Ready');
-});
-
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
