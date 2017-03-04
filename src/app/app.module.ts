@@ -8,18 +8,22 @@ import { StormpathModule } from 'angular-stormpath';
 import { AppComponent } from './app.component';
 import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { SigninComponent } from './signin/signin.component';
+import {AppRoutingModule} from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactDetailsComponent,
-    ContactListComponent
+    ContactListComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StormpathModule
+    StormpathModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
