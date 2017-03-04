@@ -4,6 +4,11 @@ var express = require('express');
 var path = require('path');
 var stormpath = require('express-stormpath');
 
+
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+var indexPath =  path.join(distDir, 'index.html');
+
 /**
  * Create the Express application.
  */
@@ -40,7 +45,7 @@ app.use(stormpath.init(app, {
     // produces: ['text/html'],
     spa: {
       enabled: true,
-      view: path.join(__dirname, '..', 'index.html')
+      view: indexPath
     },
     me: {
       // enabled: false,
@@ -61,7 +66,7 @@ app.use(stormpath.init(app, {
  */
 app.route('/*')
   .get(function (req, res) {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
+    res.sendFile(indexPath);
   });
 
 /**
