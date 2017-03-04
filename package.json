@@ -30,6 +30,7 @@
     "mongodb": "^2.2.21",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
+    "concurrently": "^3.4.0",
     "zone.js": "0.7.4"
   },
   "devDependencies": {
@@ -38,7 +39,6 @@
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.24",
     "codelyzer": "~2.0.0-beta.1",
-    "concurrently": "^3.4.0",
     "express-stormpath": "^3.2.0",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
@@ -50,6 +50,7 @@
     "protractor": "~4.0.13",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
+    "concurrently": "^3.4.0",
     "typescript": "~2.0.3"
   }
 }
