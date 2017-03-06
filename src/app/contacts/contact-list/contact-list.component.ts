@@ -80,4 +80,18 @@ export class ContactListComponent implements OnInit {
     }
     return this.contacts;
   }
+
+  openCheckout(name: string, amount: number) {
+    var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_live_wmonvJiL1mkU14vAZa2J8Xy8',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    handler.open({name:name, amount:amount});
+
+  }
 }
