@@ -83,7 +83,7 @@ export class ContactListComponent implements OnInit {
 
   openCheckout(name: string, amount: number) {
     var handler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_a2tf6oMw6N3xsPFK8loKfRba',
+      key: 'pk_live_wmonvJiL1mkU14vAZa2J8Xy8',
       locale: 'auto',
       token: function (token: any) {
         // You can access the token ID with `token.id`.
