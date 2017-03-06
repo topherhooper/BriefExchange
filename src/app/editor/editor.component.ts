@@ -13,7 +13,7 @@ declare var tinymce: any;
   selector: 'simple-tiny',
   template: `
 <form method="post">
-  <textarea id="{{elementId}}" [(ngModel)]='citation_client'></textarea>
+  <textarea id="{{elementId}}" [(ngModel)]='citation_client' name="citation_client"></textarea>
 </form>
 `
 })
