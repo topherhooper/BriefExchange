@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Citation } from '../citation';
-import { CitationService } from '../citation.service';
-import { CitationDetailsComponent } from '../citation-details/citation-details.component';
+import {Component, OnInit} from '@angular/core';
+import {Citation} from '../citation';
+import {CitationService} from '../citation.service';
+import {CitationDetailsComponent} from '../citation-details/citation-details.component';
 
 @Component({
   selector: 'citation-list',
@@ -15,19 +15,14 @@ export class CitationListComponent implements OnInit {
   citations: Citation[]
   selectedCitation: Citation
 
-  constructor(private citationService: CitationService) { }
+  constructor(private citationService: CitationService) {
+  }
 
   ngOnInit() {
-     this.citationService
+    this.citationService
       .getCitations()
       .then((citations: Citation[]) => {
         this.citations = citations.map((citation) => {
-          if (!citation.phone) {
-            citation.phone = {
-              mobile: '',
-              work: ''
-            }
-          }
           return citation;
         });
       });
@@ -46,11 +41,8 @@ export class CitationListComponent implements OnInit {
   createNewCitation() {
     var citation: Citation = {
       name: '',
-      email: '',
-      phone: {
-        work: '',
-        mobile: ''
-      }
+      citation_client: '',
+      citation_fixed: ''
     };
 
     // By default, a newly-created citation will have the selected state.
@@ -91,7 +83,7 @@ export class CitationListComponent implements OnInit {
       }
     });
 
-    handler.open({name:name, amount:amount});
+    handler.open({name: name, amount: amount});
 
   }
 }
