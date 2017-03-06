@@ -4,12 +4,10 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ContactListComponent } from './contact-list.component';
-import {CheckoutService} from '../../checkout/checkout.service'
 
 describe('ContactListComponent', () => {
   let component: ContactListComponent;
   let fixture: ComponentFixture<ContactListComponent>;
-  constructor (private checkoutService: CheckoutService) {}
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,7 +26,18 @@ describe('ContactListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  openService(name: String, amount: Float32Array): void {
-    this.checkoutService.openCheckout(name, amount);
+
+  openCheckout(name: string, amount: number) {
+    var handler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_a2tf6oMw6N3xsPFK8loKfRba',
+      locale: 'auto',
+      token: function (token: any) {
+        // You can access the token ID with `token.id`.
+        // Get the token ID to your server-side code for use.
+      }
+    });
+
+    handler.open({name:name, amount:amount});
+
   }
 });
