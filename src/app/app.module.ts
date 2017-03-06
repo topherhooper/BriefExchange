@@ -9,14 +9,16 @@ import { AppComponent } from './app.component';
 import { CitationDetailsComponent } from './citations/citation-details/citation-details.component';
 import { CitationListComponent } from './citations/citation-list/citation-list.component';
 import { SigninComponent } from './signin/signin.component';
-import {AppRoutingModule} from './app-routing.module'
+import {AppRoutingModule} from './app-routing.module';
+import { EditorComponent } from './editor/editor.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CitationDetailsComponent,
     CitationListComponent,
-    SigninComponent
+    SigninComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
