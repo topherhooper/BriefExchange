@@ -5,15 +5,14 @@ import {NgModule}             from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
 
-import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { CitationDetailsComponent } from './citations/citation-details/citation-details.component';
+import { CitationListComponent } from './citations/citation-list/citation-list.component';
 import { SigninComponent } from './signin/signin.component';
 
 
 const routes: Routes = [
   {path: '', component: SigninComponent},
-  {path: 'contacts', component: ContactListComponent},
-  {path: 'details', component: ContactDetailsComponent},
+  {path: 'citations', component: CitationListComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,21 @@
+<div *ngIf="citation" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="citation._id">Citation Details</h2>
+    <h2 *ngIf="!citation._id">New Citation</h2>
+  </div>
+</div>
+<div *ngIf="citation" class="row">
+  <form class="col-md-12">
+    <div class="form-group">
+      <label for="citation-name">Name</label>
+      <input class="form-control" name="citation-name" [(ngModel)]="citation.name" placeholder="Name"/>
+    </div>
+    <div class="form-group">
+      <label for="citation-email">Email</label>
+      <input class="form-control" name="citation-email" [(ngModel)]="citation.email" placeholder="support@mlab.com"/>
+    </div>
+    <button class="btn btn-primary" *ngIf="!citation._id" (click)="createCitation(citation)">Create</button>
+    <button class="btn btn-info" *ngIf="citation._id" (click)="updateCitation(citation)">Update</button>
+    <button class="btn btn-danger" *ngIf="citation._id" (click)="deleteCitation(citation._id)">Delete</button>
+  </form>
+</div>

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-5">
+    <h2>Citations</h2>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let citation of citations"
+        (click)="selectCitation(citation)"
+        [class.active]="citation === selectedCitation">
+        {{citation.name}}
+      </li>
+    </ul>
+    <button class="btn btn-warning" (click)="createNewCitation()">New</button>
+  </div>
+  <div class="col-md-5 col-md-offset-2">
+    <citation-details
+      [citation]="selectedCitation"
+      [createHandler]="addCitation"
+      [updateHandler]="updateCitation"
+      [deleteHandler]="deleteCitation">
+    </citation-details>
+  </div>
+</div>
+<button (click)="openCheckout('test', citations.length*100)">Purchase</button>
+
