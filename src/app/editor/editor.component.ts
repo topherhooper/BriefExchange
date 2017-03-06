@@ -26,9 +26,8 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     tinymce.init({
       selector: '#' + this.elementId,
-      plugins: ['link', 'paste', 'table', 'save'],
+      plugins: ['link', 'paste', 'table'],
       skin_url: 'assets/skins/lightgray',
-      toolbar: 'save',
       setup: editor => {
         this.editor = editor;
         editor.on('keyup', () => {
