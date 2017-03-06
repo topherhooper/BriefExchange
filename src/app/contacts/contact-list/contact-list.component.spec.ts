@@ -4,11 +4,12 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ContactListComponent } from './contact-list.component';
+import {CheckoutService} from '../../checkout/checkout.service'
 
 describe('ContactListComponent', () => {
   let component: ContactListComponent;
   let fixture: ComponentFixture<ContactListComponent>;
-
+  constructor(private checkoutService: CheckoutService) {}
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ContactListComponent ]
