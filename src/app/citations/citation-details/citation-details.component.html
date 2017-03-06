@@ -11,11 +11,7 @@
       <input class="form-control" name="citation-name" [(ngModel)]="citation.name" placeholder="Name"/>
     </div>
     <div class="form-group">
-      <simple-tiny
-        [elementId]="'my-editor-id'"
-        (onEditorKeyup)="keyupHandlerFunction($event)"
-      >
-      </simple-tiny>
+        <textarea id="citation.name" [(ngModel)]='citation.citation_client' name="citation_client"></textarea>
     </div>
 
     <button class="btn btn-primary" *ngIf="!citation._id" (click)="createCitation(citation)">Create</button>
