@@ -1,4 +1,4 @@
-export class Contact {
+export class Citation {
   _id?: string;
   name: string;
   email: string;

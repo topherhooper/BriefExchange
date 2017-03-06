@@ -6,16 +6,16 @@ import { StormpathModule } from 'angular-stormpath';
 
 
 import { AppComponent } from './app.component';
-import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { CitationDetailsComponent } from './citations/citation-details/citation-details.component';
+import { CitationListComponent } from './citations/citation-list/citation-list.component';
 import { SigninComponent } from './signin/signin.component';
 import {AppRoutingModule} from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactDetailsComponent,
-    ContactListComponent,
+    CitationDetailsComponent,
+    CitationListComponent,
     SigninComponent
   ],
   imports: [
