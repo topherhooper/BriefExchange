@@ -9,7 +9,8 @@ import {CheckoutService} from '../../checkout/checkout.service'
 describe('ContactListComponent', () => {
   let component: ContactListComponent;
   let fixture: ComponentFixture<ContactListComponent>;
-  constructor(private checkoutService: CheckoutService) {}
+  constructor (private checkoutService: CheckoutService) {}
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ContactListComponent ]
@@ -26,4 +27,8 @@ describe('ContactListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  openService(name: String, amount: Float32Array): void {
+    this.checkoutService.openCheckout(name, amount);
+  }
 });

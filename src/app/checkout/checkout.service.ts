@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class CheckoutService {
-  openCheckout(name, description, amount) {
+  openCheckout(name, amount) {
     var handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_a2tf6oMw6N3xsPFK8loKfRba',
       locale: 'auto',
@@ -12,7 +12,7 @@ export class CheckoutService {
       }
     });
 
-    handler.open({name, description, amount});
+    handler.open({name, amount});
 
   }
 
