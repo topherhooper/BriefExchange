@@ -14,7 +14,6 @@ import {EditorComponent} from './editor/editor.component'
 const routes: Routes = [
   {path: '', component: SigninComponent},
   {path: 'citations', component: CitationListComponent},
-  {path: 'editor', component: EditorComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
