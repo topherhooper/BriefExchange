@@ -5,15 +5,10 @@
   </div>
 </div>
 <div *ngIf="citation" class="row">
-  <form class="col-md-12">
-    <div class="form-group">
-      <label for="citation-name">Name</label>
-      <input class="form-control" name="citation-name" [(ngModel)]="citation.name" placeholder="Name"/>
+  <form class="col-md-12" method="post">
+    <div>
+      <simple-tiny></simple-tiny>
     </div>
-    <div class="form-group">
-        <textarea id="citation.name" [(ngModel)]='citation.citation_client' name="citation_client"></textarea>
-    </div>
-
     <button class="btn btn-primary" *ngIf="!citation._id" (click)="createCitation(citation)">Create</button>
     <button class="btn btn-info" *ngIf="citation._id" (click)="updateCitation(citation)">Update</button>
     <button class="btn btn-danger" *ngIf="citation._id" (click)="deleteCitation(citation._id)">Delete</button>

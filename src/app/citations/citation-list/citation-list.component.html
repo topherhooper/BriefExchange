@@ -6,7 +6,7 @@
         *ngFor="let citation of citations"
         (click)="selectCitation(citation)"
         [class.active]="citation === selectedCitation">
-        {{citation.name}}
+        {{citation.citation_client}}
       </li>
     </ul>
     <button class="btn btn-warning" (click)="createNewCitation()">New</button>

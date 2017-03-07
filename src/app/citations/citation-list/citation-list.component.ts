@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Citation} from '../citation';
 import {CitationService} from '../citation.service';
 import {CitationDetailsComponent} from '../citation-details/citation-details.component';
+declare var tinymce: any;
 
 @Component({
   selector: 'citation-list',
@@ -40,9 +41,11 @@ export class CitationListComponent implements OnInit {
 
   createNewCitation() {
     var citation: Citation = {
-      name: '',
       citation_client: '',
-      citation_fixed: ''
+      client_id: '',
+      citation_worker: '',
+      worker_id: '',
+      status: '',
     };
 
     // By default, a newly-created citation will have the selected state.
@@ -65,6 +68,7 @@ export class CitationListComponent implements OnInit {
   }
 
   updateCitation = (citation: Citation) => {
+    citation.citation_client = tinymce.activeEditor.getContent({format: 'raw'});
     var idx = this.getIndexOfCitation(citation._id);
     if (idx !== -1) {
       this.citations[idx] = citation;

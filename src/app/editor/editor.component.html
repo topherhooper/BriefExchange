@@ -1,24 +1,2 @@
-<form method="post">
-  <textarea [(ngModel)]='citation_client' name="citation_client"></textarea>
-  <button class="btn btn-primary" (click)="createNewCitation()">Add</button>
-</form>
-
-<div class="row">
-  <div class="col-md-12">
-    <h2>Citations</h2>
-    <ul class="list-group">
-      <li class="list-group-item"
-          *ngFor="let citation of citations"
-          (click)="selectCitation(citation)"
-          [class.active]="citation === selectedCitation">
-        {{citation.citation_client}}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-12 col-md-offset-2">
-  </div>
-</div>
-<div>
-  <button (click)="openCheckout('Citations', citations.length*100)">Purchase</button>
-</div>
+<textarea></textarea>
 

@@ -1,6 +1,8 @@
 export class Citation {
   _id?: string;
-  name: string;
   citation_client: string;
-  citation_fixed: string;
+  client_id: string;
+  citation_worker: string;
+  worker_id: string;
+  status: string;
 }

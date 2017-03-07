@@ -1,23 +1,14 @@
-import {
-  Component, Input,
-  OnDestroy,
-  AfterViewInit,
-  EventEmitter,
-  Output
-} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Citation} from '../citation';
 import {CitationService} from '../citation.service';
-declare var tinymce: any;
+
 @Component({
   selector: 'citation-details',
   templateUrl: './citation-details.component.html',
   styleUrls: ['./citation-details.component.css']
 })
 
-export class CitationDetailsComponent implements AfterViewInit, OnDestroy {
-  @Input() elementId: String;
-
-  @Output() onEditorKeyup = new EventEmitter<any>();
+export class CitationDetailsComponent {
 
   @Input()
   citation: Citation;
@@ -30,41 +21,6 @@ export class CitationDetailsComponent implements AfterViewInit, OnDestroy {
   deleteHandler: Function;
 
   constructor(private citationService: CitationService) {
-  }
-
-  editor;
-
-  ngAfterViewInit() {
-    tinymce.init({
-      selector: '#' + this.elementId,
-      plugins: ['link', 'paste', 'table'],
-      paste_retain_style_properties: true,
-      skin_url: 'assets/skins/lightgray',
-      setup: editor => {
-        this.editor = editor;
-        editor.addButton('smallcaps', {
-          title: 'Smallcaps',
-          icon: 'forecolor',
-          onclick: function (evt) {
-            editor.focus();
-            editor.undoManager.beforeChange();//Preserve highlighted area for undo
-            editor.formatter.toggle('smallcaps');
-            editor.undoManager.add();//Add an undo point
-          },
-          onPostRender: function () {
-            var ctrl = this;
-            editor.on('NodeChange', function (e) {
-              //Set the state of the smallcaps button to match the state of the selected text.
-              ctrl.active(editor.formatter.match('smallcaps'));
-            });
-          }
-        });
-        editor.on('keyup', () => {
-          const content = editor.getContent();
-          this.onEditorKeyup.emit(content);
-        });
-      },
-    });
   }
 
   createCitation(citation: Citation) {
@@ -83,10 +39,6 @@ export class CitationDetailsComponent implements AfterViewInit, OnDestroy {
     this.citationService.deleteCitation(citationId).then((deletedCitationId: String) => {
       this.deleteHandler(deletedCitationId);
     });
-  }
-
-  ngOnDestroy() {
-    tinymce.remove(this.editor);
   }
 
 }

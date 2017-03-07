@@ -6,40 +6,20 @@ import {
   Input,
   Output
 } from '@angular/core';
-import {Citation} from '../citations/citation';
-import {CitationService} from '../citations/citation.service';
 
 declare var tinymce: any;
 
 @Component({
   selector: 'simple-tiny',
-  templateUrl: './editor.component.html',
-  providers: [CitationService]
+  templateUrl: './editor.component.html'
 })
 
 
 export class EditorComponent implements AfterViewInit, OnDestroy {
-  citations: Citation[]
-  selectedCitation: Citation
   @Input() elementId: String;
-  @Input() client_id: string;
   @Output() onEditorKeyup = new EventEmitter<any>();
 
   editor;
-
-  constructor(private citationService: CitationService) {
-  }
-
-  ngOnInit() {
-    this.citationService
-      .getCitations()
-      .then((citations: Citation[]) => {
-        this.citations = citations.map((citation) => {
-          return citation;
-        });
-      });
-  }
-
   ngAfterViewInit() {
     tinymce.init({
       formats: {smallcaps: {inline: 'span', 'classes': 'small-caps'}},
@@ -85,32 +65,13 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
     tinymce.remove(this.editor);
   }
 
-  createNewCitation() {
-    var citation: Citation = {
-      citation_client: tinymce.activeEditor.getContent({format: 'raw'}),
-      client_id: this.client_id,
-      citation_worker: '',
-      worker_id: '',
-      status: ''
-    };
+  // createNewCitation() {
+  //   var citation: Citation = {
+  //     citation_client: tinymce.activeEditor.getContent({format: 'raw'}),
+  //     client_id: this.client_id,
+  //     citation_worker: '',
+  //     worker_id: '',
+  //     status: ''
+  //   };
 
-    // By default, a newly-created citation will have the selected state.
-    this.addCitation(citation);
-  }
-
-  addCitation = (citation: Citation) => {
-    this.citations.push(citation);
-    return this.citations;
-  }
-
-  openCheckout(name: string, amount: number) {
-    var handler = (<any>window).StripeCheckout.configure({
-      key: 'pk_live_wmonvJiL1mkU14vAZa2J8Xy8',
-      locale: 'auto',
-      token: function (token: any) {
-      }
-    });
-    handler.open({name: name, amount: amount});
-
-  }
 }
