@@ -1,12 +1,10 @@
-<form class="col-md-12">
-  <form method="post">
-    <textarea [(ngModel)]='citation_client' name="citation_client"></textarea>
-  </form>
-  <button class="btn btn-primary" (click)="createCitation(citation_client)">Add</button>
+<form method="post">
+  <textarea [(ngModel)]='citation_client' name="citation_client"></textarea>
+  <button class="btn btn-primary" (click)="createNewCitation()">Add</button>
 </form>
 
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-12">
     <h2>Citations</h2>
     <ul class="list-group">
       <li class="list-group-item"
@@ -16,7 +14,6 @@
         {{citation.citation_client}}
       </li>
     </ul>
-    <button class="btn btn-warning" (click)="createNewCitation()">New</button>
   </div>
   <div class="col-md-12 col-md-offset-2">
   </div>
